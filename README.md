@@ -1,5 +1,4 @@
-# f2wa77popoola
+# f2db77popoola
 
-https://f2wa77popoola.onrender.com
-
-class Royalty with attributes name(string), country(string), wealth(number)
+link to remote render server.
+https://f2db77popoola.onrender.com
