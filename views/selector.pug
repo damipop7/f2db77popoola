@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  -var images = ["britishroy.jpg", "pal1.jpg", "royalty1.jpg", "roycrown.jfif", "roycrownbet.webp"]
+  -for (let i = 0; i<3; i++){
+    -let ind= Math.floor(Math.random()*5);
+    img(src = `images/${image[ind]}` alt=`This is Royalty ${ind}` height="300px" width= "300px")
+  -}
