@@ -1,0 +1,42 @@
+extends layout 
+ 
+block content 
+  h1= title
+  - let royaltyid = toShow._id
+  - let name = toShow.name 
+  - let country = toShow.country
+  - let wealth = toShow.wealth
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{royaltyid}
+    - let actionid = "/resource/royalty/" + royaltyid
+ 
+  form(id='RoyaltyForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.royaltyAttr(for='name') Royalty name 
+        input#name(type='text', name='name'Y, value= Royalty_name ) 
+    div.form-group 
+        label.royaltyAttr(for='country') Royalty country 
+        input#country(type='text', name='country', value= Royalty_country ) 
+    div.form-group 
+        label.royaltyAttr(for='wealth') Royalty wealth 
+        input#wealth(type='number', name='wealth', value= Royalty_wealth ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['RoyaltyForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    }); 

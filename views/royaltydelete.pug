@@ -1,0 +1,52 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let royaltyid = toShow._id 
+  - let name = toShow.name 
+  - let country = toShow.country 
+  - let wealth = toShow.wealth 
+  - let actionid = "/resource/royalty" + royaltyid
+  
+  div 
+    div.row 
+      div(class='royaltyAttr mr-3') Royalty ID is: 
+      div #{royaltyid} 
+    div.row 
+      div(class='royaltyAttr mr-3') Royalty name is: 
+      div #{name} 
+    div.row 
+      div(class='royaltyAttr mr-3') Royalty country is: 
+      div #{country} 
+    div.row 
+      div(class='royaltyAttr mr-3') Royalty wealth is: 
+      div #{wealth} 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+    
+
+
+ script.
+        function cancel() {
+            // Go back to the home page for the costume collection
+            window.location.href='/jam'
+        }
+
+    script.
+        function deleteOnid() {
+            console.log("starting delete")
+            // delete first
+            fetch(actionid, {
+            method: 'DELETE' // Don't need a body for the delete
+            }).then((resp) => {
+                return resp.json(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+                alert("Delete succeded")
+                window.location.href='/jam'
+                // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Delete failed " + error )
+        });
+        }
