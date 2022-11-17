@@ -9,18 +9,18 @@ block content
   div.row(class='mb-2')
     div.mr-1 ID is
     div #{royaltyid}
-    - let actionid = "/resource/royalty/" + royaltyid
+    - let actionid = "/resource/royaltys/" + royaltyid
  
   form(id='RoyaltyForm', action= actionid, method="PUT") 
     div.form-group 
         label.royaltyAttr(for='name') Royalty name 
-        input#name(type='text', name='name'Y, value= Royalty_name ) 
+        input#name(type='text', name='name', value= royalty_name ) 
     div.form-group 
         label.royaltyAttr(for='country') Royalty country 
-        input#country(type='text', name='country', value= Royalty_country ) 
+        input#country(type='text', name='country', value= royaltycountry ) 
     div.form-group 
         label.royaltyAttr(for='wealth') Royalty wealth 
-        input#wealth(type='number', name='wealth', value= Royalty_wealth ) 
+        input#wealth(type='number', name='wealth', value= royaltywealth ) 
     input(type="submit") 
  
   script. 
