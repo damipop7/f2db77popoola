@@ -6,11 +6,12 @@ block content
   - let name = toShow.name 
   - let country = toShow.country
   - let wealth = toShow.wealth
-  div.row(class='mb-2')
+
+    div.row(class='mb-2')
     div.mr-1 ID is
     div #{royaltyid}
     - let actionid = "/resource/royaltys/" + royaltyid
- 
+   
   form(id='RoyaltyForm', action= actionid, method="PUT") 
     div.form-group 
         label.royaltyAttr(for='name') Royalty name 

@@ -10,14 +10,23 @@ block content
   -let items = results 
 
   
-  div(class= "container-fluid")
-  div(class= "row")
-  each value, index in results  
-    div(class= "col-sm-2") 
-    p #{value.name} is the name of the Monarch
-    p in #{value.country} 
-    p They are #{value.wealth} million dollars rich. 
-    p  
+    div(class="container-fluid") 
+    div(class="row") 
+      each item in items  
+        div(class="row-sm-2", class="m-1") Royalty #{item.name}(#{item.country}) is #{item.wealth} 
+   
+
+    div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in items  
+        - let destination = `dispatch(\"/Royalty/update?id=${item._id}\")` 
+        div(class="row-sm-2", class="m-1") Royalty #{item.name}(#{item.country}) is #{item.wealth} 
+          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+   
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
+    }  
   //- script. 
   //-   function buy(index){
   //-     alert(`You purchased Item ${index+1}`)
