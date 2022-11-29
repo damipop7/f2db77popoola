@@ -1,24 +1,14 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  p Oluwadamilola view/index
-
-  button#name Press Me
-  p 
-  button(type="button" class="btn btn-secondary" onclick= "doBump()") PressMe
-
-  div#bump() Bump the point 
-
-  script.
-    var count = 0 
-    var bump = 1
-    function doBump(){
-      count += bump 
-      bump += 1
-      document.getElementById("bump").innerHTML = "Count " + count + " with bump " + bump 
-    }
-    a(href="Royalty") Royalty info
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/royaltys") Take me to Royaltys 
+    br 
+    a(href="/logout") Logout 
      
     
