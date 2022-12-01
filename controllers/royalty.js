@@ -96,7 +96,7 @@ exports.royalty_create_post = async function(req, res) {
     try{ 
         result = await Royalty.findById( req.query.id) 
         res.render('royaltydetail',  
-{ title: 'Royalty Detail', toShow: result }); 
+        { title: 'Royalty Detail', toShow: result }); 
     } 
     catch(err){ 
         res.status(500) 

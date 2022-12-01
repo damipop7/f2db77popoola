@@ -22,6 +22,8 @@ block content
         - let destination = `dispatch(\"/Royalty/update?id=${item._id}\")` 
         div(class="row-sm-2", class="m-1") Royalty #{item.name}(#{item.country}) is #{item.wealth} 
           button.btn( class="btn-primary ml-1", onclick= destination) Update 
+           button.btn( class="btn-primary ml-1", onclick= detail) Details 
+          button.btn( class="btn-primary ml-1", onclick= Delete) Delete
    
   script. 
     function dispatch(path){ 
